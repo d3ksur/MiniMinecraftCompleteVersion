@@ -14,7 +14,7 @@ textura_cielo = load_texture("complementos/Texturas/Skybox.png")
 textura_mano = load_texture("complementos/Texturas/Arm_Texture.png")
 punch_sound = Audio("complementos/Sonidos/Punch_Sound.wav", loop = False, autoplay = False)
 
-def cambiarBloque():
+def update():
     global bloque_usando
 
     if held_keys["left mouse"] or held_keys["right mouse"]:
@@ -104,6 +104,11 @@ def generar_terreno_malla():
                 voxel = Voxel(position=(x, -y, z))
 
     return terrain_heights
+
+    # for z in range(len(terrain_heights)):
+    #     for x in range(len(terrain_heights[z])):
+    #         for y in range(terrain_heights[x][z]):
+    #             voxel = Voxel(position=(x, y, z))
 
 controladorDeJugador = FirstPersonController()
 terrain_heights = generar_terreno_malla()
